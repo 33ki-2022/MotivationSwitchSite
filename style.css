@@ -1,0 +1,474 @@
+@charset "UTF-8";
+
+/* フォントの定義 */
+.zen-kaku-gothic-new-light {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.zen-kaku-gothic-new-regular {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.zen-kaku-gothic-new-medium {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.zen-kaku-gothic-new-bold {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* グローバルなリセットと設定 */
+* {
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    font-weight: 300;
+    box-sizing: border-box;
+}
+
+/* カラー変数の定義 */
+:root {
+    --bg-color: #ffffff;
+    /* ライトモードの背景色 */
+    --text-color: #232323;
+    /* ライトモードの文字色 */
+    --header-h1-color: #232323;
+    /* ライトモードのh1色 */
+    --link-color: #2b2b2b;
+    /* ライトモードのリンク色 */
+    --active-link-color: #000000;
+    /* ライトモードのクリック時の色（赤） */
+    --footer-bg-color: #434343;
+    /* フッターの背景色 */
+    --footer-text-color: #fff;
+    /* フッターの文字色 */
+
+    /* グラデーション色 - ライトモード */
+    --gradient-start-light: #ffffff;
+    /* 例: 非常に薄い青 */
+    --gradient-end-light: #707070;
+    /* 例: 薄い青 */
+}
+
+/* ダークモード時の変数上書き */
+html[data-theme='dark'] {
+    --bg-color: #111111;
+    /* ダークモードの背景色 */
+    --text-color: #ffffff;
+    /* ダークモードの文字色 */
+    --header-h1-color: #ffffff;
+    /* ダークモードのh1色 */
+    --link-color: #ffffff;
+    /* ダークモードのリンク色 */
+    --active-link-color: #FFA500;
+    /* ダークモードのクリック時の色（オレンジ） */
+    --footer-bg-color: #ccc;
+    /* ダークモードのフッター背景色 */
+    --footer-text-color: #232323;
+    /* ダークモードのフッター文字色 */
+
+    /* グラデーション色 - ダークモード */
+    --gradient-start-dark: #111111;
+    /* 例: ダークな青紫 */
+    --gradient-end-dark: #707070;
+    /* 例: よりダークな青紫 */
+}
+
+/* bodyのスタイル - 変数を使用 */
+body {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    line-height: 1.6;
+    height: 100%;
+    /* background-color: var(--bg-color); */
+    /* JavaScriptでbackground-imageを設定するため削除 */
+    color: var(--text-color);
+    /* 文字色をカスタムプロパティから取得 */
+    transition: background-image 0.5s ease, color 0.5s ease;
+    /* スムーズな切り替え */
+}
+
+#wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header h1 {
+    margin: 6rem 0;
+    text-align: center;
+    font-size: 110%;
+    letter-spacing: 0.2rem;
+    font-weight: 500;
+    color: var(--header-h1-color);
+    transition: color 0.5s ease;
+}
+
+nav ul {
+    text-align: right;
+    padding: 2rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 50%;
+    font-weight: 500;
+    color: var(--link-color);
+    transition: color 0.5s ease;
+}
+
+main {
+    padding: 1rem;
+    margin: auto 5%;
+    margin-top: 20%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+main h2 {
+    font-weight: 500;
+    font-size: 110%;
+}
+
+section {
+    padding: 20px;
+    width: 100%;
+}
+
+.sec00 {
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: end;
+    margin-bottom: 30px;
+}
+
+.sec00 p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.sec01 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.sec02 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.sec06 {
+    font-size: 80%;
+    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: end;
+}
+
+main li {
+    text-align: left;
+    list-style: circle
+}
+
+/* 風船のスタイル */
+.balloons {
+    display: flex;
+    justify-content: center;
+}
+
+.balloons button {
+    text-decoration: none;
+    font-size: 0.5rem;
+    font-weight: 500;
+    width: 7rem;
+    height: 7rem;
+    border: none;
+    border-radius: 50%;
+    box-shadow: -6px -6px 0 rgba(0, 0, 0, 0.15) inset;
+    cursor: pointer;
+    transform-origin: center bottom;
+    transition: color 0.5s ease;
+    animation: sway 5s ease-in-out infinite;
+}
+
+#balloon_1 a,
+#balloon_2 a,
+#balloon_3 a,
+#balloon_4 a,
+#balloon_5 a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: color 0.2s ease;
+}
+
+/* クリック時（アクティブ状態）の色を設定 */
+#balloon_1 a:active,
+#balloon_2 a:active,
+#balloon_3 a:active,
+#balloon_4 a:active,
+#balloon_5 a:active,
+#balloon_1 a:focus {
+    color: var(--active-link-color);
+    outline: none;
+}
+
+
+/* 風船のゆらゆらアニメーション */
+@keyframes sway {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* バルーンがホバーされたらアニメーションを止める */
+#balloon_1:hover,
+#balloon_2:hover,
+#balloon_3:hover {
+    animation-play-state: paused;
+}
+
+footer {
+    background: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* スイッチのスタイル */
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 200px;
+    height: 80px;
+    transform: rotate(90deg);
+    background: #F2CC39;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    position: relative;
+    transition: 1s ease;
+}
+
+label:after {
+    content: '';
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    left: 10px;
+    transition: 0.5s ease;
+}
+
+input:checked+label {
+    transition: 0.5s ease;
+    background: #414141;
+}
+
+input:checked+label:after {
+    left: calc(100% - 10px);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+    transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 420ms !important;
+    transition-delay: 0 !important;
+}
+
+/* レスポンシブデザインのメディアクエリ */
+@media all and (min-width: 600px) {
+    header h1 {
+        font-size: 150%;
+    }
+
+    main h3 {
+        font-size: 110%;
+    }
+
+    main h4 {
+        font-size: 80%;
+        line-height: 2rem;
+    }
+
+    main p {
+        font-size: 80%;
+        line-height: 1.3rem;
+    }
+
+    .sec11 {
+        line-height: 2rem;
+    }
+
+    .icon img {
+        width: 150px;
+        height: auto;
+    }
+
+    nav ul li a {
+        font-size: 80%;
+    }
+
+    main {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .sec00 p {
+        font-size: 115%;
+    }
+
+    .sec01 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .sec02 {
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
+
+    .sec03 {
+        grid-column-start: 5;
+        grid-column-end: 7;
+    }
+
+    .sec04 {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    .sec05 {
+        grid-column-start: 4;
+        grid-column-end: 7;
+    }
+
+    .sec06 {
+        font-size: 115%;
+    }
+
+    .balloons button {
+        font-size: 0.6rem;
+    }
+
+    label {
+        width: 300x;
+        height: 90px;
+    }
+
+    label:after {
+        width: 70px;
+        height: 70px;
+    }
+
+}
+
+@media all and (min-width: 1025px) {
+    header h1 {
+        font-size: 200%;
+    }
+
+    .icon img {
+        width: 180px;
+        height: auto;
+    }
+
+    main {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .sec00 p {
+        font-size: 120%;
+    }
+
+    .sec01 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    .sec02 {
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
+
+    .sec03 {
+        grid-column-start: 5;
+        grid-column-end: 7;
+    }
+
+    .sec04 {
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+
+    .sec05 {
+        grid-column-start: 4;
+        grid-column-end: 6;
+    }
+
+    .sec06 {
+        font-size: 120%;
+    }
+
+    .balloons button {
+        font-size: 0.8rem;
+        width: 12rem;
+        height: 12rem;
+    }
+
+    label {
+        width: 1000x;
+        height: 120px;
+        transform: rotate(0deg);
+    }
+
+    label:after {
+        width: 100px;
+        height: 100px;
+    }
+
+}

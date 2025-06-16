@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivation Switch</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="wrap">
+        <header>
+            <h1>MOTIVATION SwitCh site</h1>
+            
+            <div class="switch-box">
+                <input type="checkbox" id="switch-1">
+                <label for="switch-1">Toggle</label>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="what.html">WHAT IS THIS ?</a></li>
+                    <li><a href="about.html">CREATED BY</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="sec00">
+                <p id="onoff" class="onoff">やる気スイッチONのときのあるある</p>
+            </section>
+            <section class="sec01">
+                <div class="balloons">
+                    <button type="button" id="balloon_1" class="btn-generic"><a
+                            href="pages/aruaru1.html">あるある1</a></button>
+                </div>
+            </section>
+            <section class="sec02">
+                <div class="balloons">
+                    <button type="button" id="balloon_2" class="btn-generic"><a
+                            href="pages/aruaru2.html">あるある2</a></button>
+                </div>
+            </section>
+            <section class="sec03">
+                <div class="balloons">
+                    <button type="button" id="balloon_3" class="btn-generic"><a
+                            href="pages/aruaru3.html">あるある3</a></button>
+                </div>
+            </section>
+            <section class="sec04">
+                <div class="balloons">
+                    <button type="button" id="balloon_4" class="btn-generic"><a
+                            href="pages/aruaru4.html">あるある4</a></button>
+                </div>
+            </section>
+            <section class="sec05">
+                <div class="balloons">
+                    <button type="button" id="balloon_5" class="btn-generic"><a
+                            href="pages/aruaru5.html">あるある5</a></button>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+            </section>
+            <section class="sec06">
+                <h2 id="vasion00">やる気スイッチがOFFになるとき…</h2>
+                <br>
+                <ul>
+                    <li>
+                        <p id="vasion01">ミスしたとき</p>
+                    </li>
+                    <li>
+                        <p id="vasion02">眠いとき</p>
+                    </li>
+                    <li>
+                        <p id="vasion03">体調悪いとき</p>
+                    </li>
+                    <li>
+                        <p id="vasion04">天気が雨のとき</p>
+                    </li>
+                    <li>
+                        <p id="vasion05">ハプニングが起こったとき</p>
+                    </li>
+                    <li>
+                        <p id="vasion06">小指打ったとき</p>
+                    </li>
+                    <li>
+                        <p id="vasion07">作業が滞ったとき</p>
+                    </li>
+                    <li>
+                        <p id="vasion08">終わったと思ったら次のが来たとき</p>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 33ki</p>
+        </footer>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('switch-1');
+        const htmlElement = document.documentElement;
+        const bodyElement = document.body;
+
+        // ボタン要素を取得
+        const balloon1 = document.getElementById('balloon_1');
+        const balloon2 = document.getElementById('balloon_2');
+        const balloon3 = document.getElementById('balloon_3');
+        const balloon4 = document.getElementById('balloon_4');
+        const balloon5 = document.getElementById('balloon_5');
+
+        // カラーパレットの定義
+        const lightModeColors = ['#A3CDD9', '#FFFCE6', '#788CDD', '#C2B8AD', '#F2CC39'];
+        const darkModeColors = ['#333333', '#4d4d4d', '#666666', '#999999'];
+
+        // 各バルーンのリンク先URLの定義
+        const lightModeLinks = {
+            balloon_1: 'pages/aruaru1.html',
+            balloon_2: 'pages/aruaru2.html',
+            balloon_3: 'pages/aruaru3.html',
+            balloon_4: 'pages/aruaru4.html',
+            balloon_5: 'pages/aruaru5.html'
+        };
+
+        const darkModeLinks = {
+            balloon_1: 'pages/aruaru1-dark.html',
+            balloon_2: 'pages/aruaru2-dark.html',
+            balloon_3: 'pages/aruaru3-dark.html',
+            balloon_4: 'pages/aruaru4-dark.html',
+            balloon_5: 'pages/aruaru5-dark.html'
+        };
+
+        // 各バルーンのテキスト内容の定義
+        const lightModeTexts = {
+            onoff: 'やる気スイッチONのときのあるある',
+            balloon_1: '集中力',
+            balloon_2: '家事',
+            balloon_3: '挑戦',
+            balloon_4: '人間関係',
+            balloon_5: '徹夜',
+            vasion00: 'やる気スイッチがOFFになるとき…',
+            vasion01: 'ミスしたとき',
+            vasion02: '眠いとき',
+            vasion03: '体調が悪いとき',
+            vasion04: '天気が雨のとき',
+            vasion05: '悪いハプニングが起こったとき',
+            vasion06: '小指をぶつけたとき',
+            vasion07: '作業が滞ったとき',
+            vasion08: '終わったと思ったらまた次のものが来たとき',
+        };
+
+        const darkModeTexts = {
+            onoff: 'やる気スイッチOFFのときのあるある',
+            balloon_1: '勉強',
+            balloon_2: '自炊',
+            balloon_3: '起き上がる',
+            balloon_4: '会話',
+            balloon_5: '地道なこと',
+            vasion00: 'やる気スイッチがONになるとき…',
+            vasion01: '褒められたとき',
+            vasion02: '深い眠りから覚めたとき',
+            vasion03: '目標を立てたとき',
+            vasion04: '波に乗れたとき',
+            vasion05: 'ご褒美があるとき',
+            vasion06: '結果が出たとき',
+            vasion07: '楽しくなってきたとき',
+            vasion08: '早起きできたとき',
+        };
+
+        // すべてのバルーンを配列にまとめる
+        const allBalloons = [balloon1, balloon2, balloon3, balloon4, balloon5];
+
+        // sec06 のテキスト要素を取得
+        const sec06Texts = {};
+        for (let i = 0; i <= 8; i++) {
+            const id = `vasion${String(i).padStart(2, '0')}`;
+            sec06Texts[id] = document.getElementById(id);
+        }
+
+        // ここで `onoffTexts` の誤った定義を削除しました。
+
+        const onoff = document.querySelector('.onoff'); // これが正しい要素の参照です
+
+        // sec06 の要素を取得
+        const sec06 = document.querySelector('.sec06');
+
+        function assignUniqueRandomColors(palette) {
+            let colorsToUse = [...palette];
+
+            allBalloons.forEach(balloon => {
+                if (balloon) {
+                    if (colorsToUse.length === 0) {
+                        colorsToUse = [...palette];
+                    }
+                    const randomIndex = Math.floor(Math.random() * colorsToUse.length);
+                    const chosenColor = colorsToUse[randomIndex];
+                    balloon.style.backgroundColor = chosenColor;
+
+                    colorsToUse.splice(randomIndex, 1);
+                }
+            });
+        }
+
+        function updateBalloonLinks(links) {
+            allBalloons.forEach(balloon => {
+                if (balloon) {
+                    const linkElement = balloon.querySelector('a');
+                    if (linkElement) {
+                        linkElement.href = links[balloon.id];
+                    }
+                }
+            });
+        }
+
+        // メインタイトルテキストを更新するための修正された関数
+        function updateOnoffMainTitle(texts) {
+            if (onoff && texts.onoff) {
+                onoff.textContent = texts.onoff;
+            }
+        }
+
+        // バルーンのテキストを更新する関数
+        function updateBalloonText(texts) {
+            allBalloons.forEach(balloon => {
+                if (balloon) {
+                    const linkElement = balloon.querySelector('a');
+                    if (linkElement) {
+                        linkElement.textContent = texts[balloon.id];
+                    }
+                }
+            });
+        }
+
+        // sec06 のテキストを更新する関数
+        function updateSec06Text(texts) {
+            for (const id in sec06Texts) {
+                if (sec06Texts[id] && texts[id]) {
+                    sec06Texts[id].textContent = texts[id];
+                }
+            }
+        }
+
+        // 背景グラデーションを更新する関数
+        function updateBackgroundGradient() {
+            if (!sec06) return;
+
+            const sec06OffsetTop = sec06.offsetTop;
+
+            if (themeToggle.checked) { // ダークモード
+                bodyElement.style.backgroundImage = `linear-gradient(to bottom, var(--bg-color) 0%, var(--bg-color) ${sec06OffsetTop}px, var(--gradient-start-dark) ${sec06OffsetTop}px, var(--gradient-end-dark) 100%)`;
+            } else { // ライトモード
+                bodyElement.style.backgroundImage = `linear-gradient(to bottom, var(--bg-color) 0%, var(--bg-color) ${sec06OffsetTop}px, var(--gradient-start-light) ${sec06OffsetTop}px, var(--gradient-end-light) 100%)`;
+            }
+        }
+
+        // ページロード時に、現在のテーマに応じて色、リンク、テキスト、グラデーションを適用
+        assignUniqueRandomColors(lightModeColors);
+        updateBalloonLinks(lightModeLinks);
+        updateBalloonText(lightModeTexts);
+        updateSec06Text(lightModeTexts);
+        updateOnoffMainTitle(lightModeTexts); // 初期ロード時に修正された関数を呼び出し
+
+        // 初回ロード時にグラデーションを適用
+        updateBackgroundGradient();
+
+        // アニメーションの開始時間をランダムにする (ページロード時に一度設定)
+        const animationDuration = 5;
+
+        allBalloons.forEach(balloon => {
+            if (balloon) {
+                const randomDelay = -Math.random() * animationDuration;
+                balloon.style.animationDelay = `${randomDelay}s`;
+            }
+        });
+
+        // テーマ切り替え時の処理
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
+                htmlElement.setAttribute('data-theme', 'dark');
+                assignUniqueRandomColors(darkModeColors);
+                updateBalloonLinks(darkModeLinks);
+                updateOnoffMainTitle(darkModeTexts); // ダークモード用に修正された関数を呼び出し
+                updateBalloonText(darkModeTexts);
+                updateSec06Text(darkModeTexts);
+                updateBackgroundGradient();
+            } else {
+                htmlElement.setAttribute('data-theme', 'light');
+                assignUniqueRandomColors(lightModeColors);
+                updateBalloonLinks(lightModeLinks);
+                updateOnoffMainTitle(lightModeTexts); // ライトモード用に修正された関数を呼び出し
+                updateBalloonText(lightModeTexts);
+                updateSec06Text(lightModeTexts);
+                updateBackgroundGradient();
+            }
+        });
+
+        // ウィンドウのリサイズ時にもグラデーションを更新 (sec06の位置が変わる可能性があるため)
+        window.addEventListener('resize', updateBackgroundGradient);
+    </script>
+</body>
+
+</html>

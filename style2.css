@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+/* フォントの定義 */
+.zen-kaku-gothic-new-light {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.zen-kaku-gothic-new-regular {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.zen-kaku-gothic-new-medium {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.zen-kaku-gothic-new-bold {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* グローバルなリセットと設定 */
+* {
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    font-weight: 300;
+    box-sizing: border-box;
+}
+
+/* カラー変数の定義 */
+:root {
+    --bg-color: #ffffff;
+    /* ライトモードの背景色 */
+    --text-color: #232323;
+    /* ライトモードの文字色 */
+    --header-h1-color: #232323;
+    /* ライトモードのh1色 */
+    --link-color: #2b2b2b;
+    /* ライトモードのリンク色 */
+    --active-link-color: #000000;
+    /* ライトモードのクリック時の色（赤） */
+    --footer-bg-color: #434343;
+    /* フッターの背景色 */
+    --footer-text-color: #fff;
+    /* フッターの文字色 */
+}
+
+/* ダークモード時の変数上書き */
+html[data-theme='dark'] {
+    --bg-color: #111111;
+    /* ダークモードの背景色 */
+    --text-color: #ffffff;
+    /* ダークモードの文字色 */
+    --header-h1-color: #ffffff;
+    /* ダークモードのh1色 */
+    --link-color: #ffffff;
+    /* ダークモードのリンク色 */
+    --active-link-color: #FFA500;
+    /* ダークモードのクリック時の色（オレンジ） */
+    --footer-bg-color: #ccc;
+    /* ダークモードのフッター背景色 */
+    --footer-text-color: #232323;
+    /* ダークモードのフッター文字色 */
+}
+
+/* bodyのスタイル - 変数を使用 */
+body {
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    line-height: 1.6;
+    height: 100%;
+    background-color: var(--bg-color);
+    /* 背景色をカスタムプロパティから取得 */
+    color: var(--text-color);
+    /* 文字色をカスタムプロパティから取得 */
+    transition: background-color 0.5s ease, color 0.5s ease;
+    /* スムーズな切り替え */
+}
+
+#wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    position: relative;
+}
+
+.icon img {
+    width: 120px;
+    height: auto;
+    margin-top: 10%;
+    padding: 30px;
+    display: block;
+    border-radius: 100%;
+}
+
+header h1 {
+    margin: 6rem 0 4rem 2rem;
+    font-size: 110%;
+    letter-spacing: 0.2rem;
+    font-weight: 500;
+    color: var(--header-h1-color);
+    /* h1の色もカスタムプロパティから取得 */
+    transition: color 0.5s ease;
+}
+
+nav ul {
+    text-align: right;
+    padding: 2rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.left {
+    text-align: right;
+    padding: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 50%;
+    font-weight: 500;
+    color: var(--link-color);
+    /* リンクの色もカスタムプロパティから取得 */
+    transition: color 0.5s ease;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 50%;
+    font-weight: 500;
+    color: var(--link-color);
+    /* リンクの色もカスタムプロパティから取得 */
+    transition: color 0.5s ease;
+}
+
+main {
+    padding: 1rem;
+    margin: auto 5%;
+    margin-top: 0;
+    box-sizing: border-box;
+}
+
+main li {
+    list-style: circle;
+}
+
+main h2 {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+main h3 {
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+main h4 {
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+main p {
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+section {
+    padding: 20px;
+    width: 100%;
+}
+
+footer {
+    background: var(--footer-bg-color);
+    /* フッターの背景色もカスタムプロパティから取得 */
+    color: var(--footer-text-color);
+    /* フッターの文字色もカスタムプロパティから取得 */
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* レスポンシブデザインのメディアクエリ */
+@media all and (min-width: 600px) {
+    header h1 {
+        font-size: 150%;
+    }
+
+    nav ul li a {
+        font-size: 80%;
+    }
+
+    main h2 {
+        font-size: 150%;
+    }
+
+    main h3 {
+        margin: 1rem 0;
+        font-size: 130%;
+    }
+
+    main h4 {
+        /* font-size: 90%; */
+        line-height: 2rem;
+    }
+
+    main p {
+        font-size: 90%;
+        line-height: 2rem;
+    }
+
+}
+
+@media all and (min-width: 1025px) {
+    header h1 {
+        font-size: 200%;
+    }
+
+    main h2 {
+        font-size: 200%;
+    }
+
+    main h3 {
+        margin: 1rem 0;
+        /* font-size: 180%; */
+    }
+
+    main h4 {
+        /* font-size: 130%; */
+        line-height: 2rem;
+    }
+
+    main p {
+        /* font-size: 130%; */
+        line-height: 2rem;
+    }
+
+}
