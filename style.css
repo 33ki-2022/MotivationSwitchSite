@@ -87,8 +87,6 @@ body {
     font-family: "Zen Kaku Gothic New", sans-serif;
     line-height: 1.6;
     height: 100%;
-    /* background-color: var(--bg-color); */
-    /* JavaScriptでbackground-imageを設定するため削除 */
     color: var(--text-color);
     /* 文字色をカスタムプロパティから取得 */
     transition: background-image 0.5s ease, color 0.5s ease;
@@ -185,47 +183,62 @@ main li {
     list-style: circle
 }
 
-/* 風船のスタイル */
+/* 風船のスタイル (<a>タグに適用) */
 .balloons {
     display: flex;
     justify-content: center;
 }
 
-.balloons button {
+/* 新しい.balloon-linkクラスにボタンのスタイルを適用 */
+.balloons .balloon-link {
+    /* */
     text-decoration: none;
-    font-size: 0.5rem;
+    /* */
+    font-size: 0.7rem;
+    /* この値は元のbuttonのフォントサイズに合わせて調整してください */
     font-weight: 500;
+    /* */
     width: 7rem;
+    /* */
     height: 7rem;
+    /* */
     border: none;
+    /* */
     border-radius: 50%;
+    /* */
     box-shadow: -6px -6px 0 rgba(0, 0, 0, 0.15) inset;
+    /* */
     cursor: pointer;
+    /* */
     transform-origin: center bottom;
-    transition: color 0.5s ease;
+    /* */
+    transition: color 0.5s ease, background-color 0.5s ease;
+    /* */
     animation: sway 5s ease-in-out infinite;
-}
-
-#balloon_1 a,
-#balloon_2 a,
-#balloon_3 a,
-#balloon_4 a,
-#balloon_5 a {
+    /* */
+    display: flex;
+    /* テキストを中央に配置するため追加 */
+    justify-content: center;
+    /* テキストを中央に配置するため追加 */
+    align-items: center;
+    /* テキストを中央に配置するため追加 */
     color: var(--link-color);
-    text-decoration: none;
-    font-size: 1.5em;
-    transition: color 0.2s ease;
+    /* 元の<a>タグの文字色 */
 }
 
 /* クリック時（アクティブ状態）の色を設定 */
-#balloon_1 a:active,
-#balloon_2 a:active,
-#balloon_3 a:active,
-#balloon_4 a:active,
-#balloon_5 a:active,
-#balloon_1 a:focus {
+/* id指定は維持しつつ、<a>タグになったので直接指定 */
+#balloon_1:active,
+#balloon_2:active,
+#balloon_3:active,
+#balloon_4:active,
+#balloon_5:active,
+#balloon_1:focus {
+    /* */
     color: var(--active-link-color);
+    /* */
     outline: none;
+    /* */
 }
 
 
@@ -245,9 +258,11 @@ main li {
 }
 
 /* バルーンがホバーされたらアニメーションを止める */
+/* id指定は維持しつつ、<a>タグになったので直接指定 */
 #balloon_1:hover,
 #balloon_2:hover,
 #balloon_3:hover {
+    /* */
     animation-play-state: paused;
 }
 
@@ -391,8 +406,10 @@ html.transition *:after {
         font-size: 115%;
     }
 
-    .balloons button {
-        font-size: 0.6rem;
+    .balloons .balloon-link {
+        /* */
+        font-size: 0.8rem;
+        /* */
     }
 
     label {
@@ -454,8 +471,9 @@ html.transition *:after {
         font-size: 120%;
     }
 
-    .balloons button {
-        font-size: 0.8rem;
+    .balloons .balloon-link {
+        /* */
+        font-size: 1rem;
         width: 12rem;
         height: 12rem;
     }

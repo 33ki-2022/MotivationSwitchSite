@@ -37,32 +37,27 @@
             </section>
             <section class="sec01">
                 <div class="balloons">
-                    <button type="button" id="balloon_1" class="btn-generic"><a
-                            href="pages/aruaru1.html">あるある1</a></button>
+                    <a href="pages/aruaru1.html" id="balloon_1" class="balloon-link">あるある1</a>
                 </div>
             </section>
             <section class="sec02">
                 <div class="balloons">
-                    <button type="button" id="balloon_2" class="btn-generic"><a
-                            href="pages/aruaru2.html">あるある2</a></button>
+                    <a href="pages/aruaru2.html" id="balloon_2" class="balloon-link">あるある2</a>
                 </div>
             </section>
             <section class="sec03">
                 <div class="balloons">
-                    <button type="button" id="balloon_3" class="btn-generic"><a
-                            href="pages/aruaru3.html">あるある3</a></button>
+                    <a href="pages/aruaru3.html" id="balloon_3" class="balloon-link">あるある3</a>
                 </div>
             </section>
             <section class="sec04">
                 <div class="balloons">
-                    <button type="button" id="balloon_4" class="btn-generic"><a
-                            href="pages/aruaru4.html">あるある4</a></button>
+                    <a href="pages/aruaru4.html" id="balloon_4" class="balloon-link">あるある4</a>
                 </div>
             </section>
             <section class="sec05">
                 <div class="balloons">
-                    <button type="button" id="balloon_5" class="btn-generic"><a
-                            href="pages/aruaru5.html">あるある5</a></button>
+                    <a href="pages/aruaru5.html" id="balloon_5" class="balloon-link">あるある5</a>
                 </div>
                 <br>
                 <br>
@@ -111,7 +106,7 @@
         const htmlElement = document.documentElement;
         const bodyElement = document.body;
 
-        // ボタン要素を取得
+        // ボタン要素を取得 (<a>タグに変更されたため、idで直接取得)
         const balloon1 = document.getElementById('balloon_1');
         const balloon2 = document.getElementById('balloon_2');
         const balloon3 = document.getElementById('balloon_3');
@@ -186,9 +181,7 @@
             sec06Texts[id] = document.getElementById(id);
         }
 
-        // ここで `onoffTexts` の誤った定義を削除しました。
-
-        const onoff = document.querySelector('.onoff'); // これが正しい要素の参照です
+        const onoff = document.querySelector('.onoff');
 
         // sec06 の要素を取得
         const sec06 = document.querySelector('.sec06');
@@ -210,13 +203,12 @@
             });
         }
 
+        // updateBalloonLinks関数を修正
         function updateBalloonLinks(links) {
             allBalloons.forEach(balloon => {
                 if (balloon) {
-                    const linkElement = balloon.querySelector('a');
-                    if (linkElement) {
-                        linkElement.href = links[balloon.id];
-                    }
+                    // balloon自体が<a>タグになったため、直接hrefを更新
+                    balloon.href = links[balloon.id];
                 }
             });
         }
@@ -228,14 +220,12 @@
             }
         }
 
-        // バルーンのテキストを更新する関数
+        // バルーンのテキストを更新する関数 (<a>タグのtextContentを直接更新)
         function updateBalloonText(texts) {
             allBalloons.forEach(balloon => {
                 if (balloon) {
-                    const linkElement = balloon.querySelector('a');
-                    if (linkElement) {
-                        linkElement.textContent = texts[balloon.id];
-                    }
+                    // balloon自体が<a>タグになったため、直接textContentを更新
+                    balloon.textContent = texts[balloon.id];
                 }
             });
         }
@@ -267,7 +257,7 @@
         updateBalloonLinks(lightModeLinks);
         updateBalloonText(lightModeTexts);
         updateSec06Text(lightModeTexts);
-        updateOnoffMainTitle(lightModeTexts); // 初期ロード時に修正された関数を呼び出し
+        updateOnoffMainTitle(lightModeTexts);
 
         // 初回ロード時にグラデーションを適用
         updateBackgroundGradient();
@@ -288,7 +278,7 @@
                 htmlElement.setAttribute('data-theme', 'dark');
                 assignUniqueRandomColors(darkModeColors);
                 updateBalloonLinks(darkModeLinks);
-                updateOnoffMainTitle(darkModeTexts); // ダークモード用に修正された関数を呼び出し
+                updateOnoffMainTitle(darkModeTexts);
                 updateBalloonText(darkModeTexts);
                 updateSec06Text(darkModeTexts);
                 updateBackgroundGradient();
@@ -296,7 +286,7 @@
                 htmlElement.setAttribute('data-theme', 'light');
                 assignUniqueRandomColors(lightModeColors);
                 updateBalloonLinks(lightModeLinks);
-                updateOnoffMainTitle(lightModeTexts); // ライトモード用に修正された関数を呼び出し
+                updateOnoffMainTitle(lightModeTexts);
                 updateBalloonText(lightModeTexts);
                 updateSec06Text(lightModeTexts);
                 updateBackgroundGradient();
