@@ -176,6 +176,7 @@ section {
     text-align: center;
     grid-column-start: 1;
     grid-column-end: end;
+    margin: 10% 0;
 }
 
 main li {

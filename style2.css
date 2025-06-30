@@ -181,6 +181,16 @@ main p {
     font-size: 0.8rem;
 }
 
+main p a {
+    font-weight: 500;
+    color: #000000;
+    text-decoration: underline;
+}
+
+main p a:hover{
+    color: #FFA500;
+}
+
 section {
     padding: 20px;
     width: 100%;
