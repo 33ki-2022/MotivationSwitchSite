@@ -78,7 +78,7 @@ html[data-theme='dark'] {
     /* グラデーション色 - ダークモード */
     --gradient-start-dark: #111111;
     /* 例: ダークな青紫 */
-    --gradient-end-dark: #707070;
+    --gradient-end-dark: #ffffff;
     /* 例: よりダークな青紫 */
 }
 
@@ -115,6 +115,7 @@ nav ul {
     position: fixed;
     top: 0;
     right: 0;
+    z-index: 2;
 }
 
 nav ul li {
@@ -182,6 +183,13 @@ section {
 main li {
     text-align: left;
     list-style: circle
+}
+
+.question {
+    font-size: 1.5rem;
+    margin-top: 40%;
+    text-align: center;
+    font-weight: 500;
 }
 
 /* 風船のスタイル (<a>タグに適用) */
@@ -275,6 +283,7 @@ footer {
     padding: 1rem;
     width: 100%;
     transition: background 0.5s ease, color 0.5s ease;
+    margin-top: 20%;
 }
 
 /* スイッチのスタイル */
@@ -374,6 +383,10 @@ html.transition *:after {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 
+    .question {
+        font-size: 2rem;
+    }
+
     .sec00 p {
         font-size: 115%;
     }
@@ -404,7 +417,7 @@ html.transition *:after {
     }
 
     .sec06 {
-        font-size: 115%;
+        font-size: 130%;
     }
 
     .balloons .balloon-link {
@@ -469,7 +482,7 @@ html.transition *:after {
     }
 
     .sec06 {
-        font-size: 120%;
+        font-size: 150%;
     }
 
     .balloons .balloon-link {

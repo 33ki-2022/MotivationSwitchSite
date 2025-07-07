@@ -16,7 +16,7 @@
     <div id="wrap">
         <header>
             <h1>MOTIVATION SwitCh site</h1>
-            
+
             <div class="switch-box">
                 <input type="checkbox" id="switch-1">
                 <label for="switch-1">Toggle</label>
@@ -75,7 +75,7 @@
                         <p id="vasion02">眠いとき</p>
                     </li>
                     <li>
-                        <p id="vasion03">体調悪いとき</p>
+                        <p id="vasion03">体調が悪いとき</p>
                     </li>
                     <li>
                         <p id="vasion04">天気が雨のとき</p>
@@ -84,7 +84,7 @@
                         <p id="vasion05">ハプニングが起こったとき</p>
                     </li>
                     <li>
-                        <p id="vasion06">小指打ったとき</p>
+                        <p id="vasion06">小指を打ったとき</p>
                     </li>
                     <li>
                         <p id="vasion07">作業が滞ったとき</p>
@@ -93,7 +93,21 @@
                         <p id="vasion08">終わったと思ったら次のが来たとき</p>
                     </li>
                 </ul>
+
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <div class="switch-box">
+                    <input type="checkbox" id="switch-2">
+                    <label for="switch-2">Toggle</label>
+                </div>
+
+                <p class="question">Have you turned on the motivation switch?</p>
+
             </section>
+
         </main>
 
         <footer>
@@ -102,11 +116,13 @@
     </div>
 
     <script>
-        const themeToggle = document.getElementById('switch-1');
+        // <script>タグの中身をこれに差し替えてください
+
+        const themeToggles = document.querySelectorAll('input[type="checkbox"]');
         const htmlElement = document.documentElement;
         const bodyElement = document.body;
 
-        // ボタン要素を取得 (<a>タグに変更されたため、idで直接取得)
+        // ボタン要素を取得
         const balloon1 = document.getElementById('balloon_1');
         const balloon2 = document.getElementById('balloon_2');
         const balloon3 = document.getElementById('balloon_3');
@@ -197,40 +213,33 @@
                     const randomIndex = Math.floor(Math.random() * colorsToUse.length);
                     const chosenColor = colorsToUse[randomIndex];
                     balloon.style.backgroundColor = chosenColor;
-
                     colorsToUse.splice(randomIndex, 1);
                 }
             });
         }
 
-        // updateBalloonLinks関数を修正
         function updateBalloonLinks(links) {
             allBalloons.forEach(balloon => {
                 if (balloon) {
-                    // balloon自体が<a>タグになったため、直接hrefを更新
                     balloon.href = links[balloon.id];
                 }
             });
         }
 
-        // メインタイトルテキストを更新するための修正された関数
         function updateOnoffMainTitle(texts) {
             if (onoff && texts.onoff) {
                 onoff.textContent = texts.onoff;
             }
         }
 
-        // バルーンのテキストを更新する関数 (<a>タグのtextContentを直接更新)
         function updateBalloonText(texts) {
             allBalloons.forEach(balloon => {
                 if (balloon) {
-                    // balloon自体が<a>タグになったため、直接textContentを更新
                     balloon.textContent = texts[balloon.id];
                 }
             });
         }
 
-        // sec06 のテキストを更新する関数
         function updateSec06Text(texts) {
             for (const id in sec06Texts) {
                 if (sec06Texts[id] && texts[id]) {
@@ -239,49 +248,28 @@
             }
         }
 
-        // 背景グラデーションを更新する関数
         function updateBackgroundGradient() {
             if (!sec06) return;
 
             const sec06OffsetTop = sec06.offsetTop;
+            const isDarkMode = htmlElement.getAttribute('data-theme') === 'dark';
 
-            if (themeToggle.checked) { // ダークモード
+            if (isDarkMode) {
                 bodyElement.style.backgroundImage = `linear-gradient(to bottom, var(--bg-color) 0%, var(--bg-color) ${sec06OffsetTop}px, var(--gradient-start-dark) ${sec06OffsetTop}px, var(--gradient-end-dark) 100%)`;
-            } else { // ライトモード
+            } else {
                 bodyElement.style.backgroundImage = `linear-gradient(to bottom, var(--bg-color) 0%, var(--bg-color) ${sec06OffsetTop}px, var(--gradient-start-light) ${sec06OffsetTop}px, var(--gradient-end-light) 100%)`;
             }
         }
 
-        // ページロード時に、現在のテーマに応じて色、リンク、テキスト、グラデーションを適用
-        assignUniqueRandomColors(lightModeColors);
-        updateBalloonLinks(lightModeLinks);
-        updateBalloonText(lightModeTexts);
-        updateSec06Text(lightModeTexts);
-        updateOnoffMainTitle(lightModeTexts);
-
-        // 初回ロード時にグラデーションを適用
-        updateBackgroundGradient();
-
-        // アニメーションの開始時間をランダムにする (ページロード時に一度設定)
-        const animationDuration = 5;
-
-        allBalloons.forEach(balloon => {
-            if (balloon) {
-                const randomDelay = -Math.random() * animationDuration;
-                balloon.style.animationDelay = `${randomDelay}s`;
-            }
-        });
-
-        // テーマ切り替え時の処理
-        themeToggle.addEventListener('change', () => {
-            if (themeToggle.checked) {
+        // テーマを切り替えるメインの関数
+        function handleThemeChange(isDarkMode) {
+            if (isDarkMode) {
                 htmlElement.setAttribute('data-theme', 'dark');
                 assignUniqueRandomColors(darkModeColors);
                 updateBalloonLinks(darkModeLinks);
                 updateOnoffMainTitle(darkModeTexts);
                 updateBalloonText(darkModeTexts);
                 updateSec06Text(darkModeTexts);
-                updateBackgroundGradient();
             } else {
                 htmlElement.setAttribute('data-theme', 'light');
                 assignUniqueRandomColors(lightModeColors);
@@ -289,11 +277,43 @@
                 updateOnoffMainTitle(lightModeTexts);
                 updateBalloonText(lightModeTexts);
                 updateSec06Text(lightModeTexts);
-                updateBackgroundGradient();
+            }
+            updateBackgroundGradient();
+        }
+
+        // ページ内の全てのスイッチにイベントを設定
+        themeToggles.forEach(toggle => {
+            toggle.addEventListener('change', (event) => {
+                const isChecked = event.target.checked;
+
+                // 他のすべてのスイッチの状態を同期させる
+                themeToggles.forEach(otherToggle => {
+                    otherToggle.checked = isChecked;
+                });
+
+                // テーマ変更を実行
+                handleThemeChange(isChecked);
+            });
+        });
+
+        // 初期ロード時の設定
+        assignUniqueRandomColors(lightModeColors);
+        updateBalloonLinks(lightModeLinks);
+        updateBalloonText(lightModeTexts);
+        updateSec06Text(lightModeTexts);
+        updateOnoffMainTitle(lightModeTexts);
+        updateBackgroundGradient();
+
+        // アニメーションの開始時間をランダムにする
+        const animationDuration = 5;
+        allBalloons.forEach(balloon => {
+            if (balloon) {
+                const randomDelay = -Math.random() * animationDuration;
+                balloon.style.animationDelay = `${randomDelay}s`;
             }
         });
 
-        // ウィンドウのリサイズ時にもグラデーションを更新 (sec06の位置が変わる可能性があるため)
+        // ウィンドウのリサイズ時にもグラデーションを更新
         window.addEventListener('resize', updateBackgroundGradient);
     </script>
 </body>
