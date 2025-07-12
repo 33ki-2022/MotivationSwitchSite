@@ -187,6 +187,7 @@ section {
 }
 
 footer {
+    margin-top: 20%;
     background: var(--footer-bg-color);
     /* フッターの背景色もカスタムプロパティから取得 */
     color: var(--footer-text-color);
