@@ -181,6 +181,16 @@ main p {
     font-size: 0.8rem;
 }
 
+main p a {
+    font-weight: 500;
+    color: #000000;
+    text-decoration: underline;
+}
+
+main p a:hover {
+    color: #FFA500;
+}
+
 section {
     padding: 20px;
     width: 100%;
@@ -215,7 +225,7 @@ footer {
     }
 
     main h4 {
-        font-size: 90%;
+        /* font-size: 90%; */
         line-height: 2rem;
     }
 
@@ -241,16 +251,16 @@ footer {
 
     main h3 {
         margin: 1rem 0;
-        font-size: 180%;
+        /* font-size: 180%; */
     }
 
     main h4 {
-        font-size: 130%;
+        /* font-size: 130%; */
         line-height: 2rem;
     }
 
     main p {
-        font-size: 130%;
+        /* font-size: 130%; */
         line-height: 2rem;
     }
 
